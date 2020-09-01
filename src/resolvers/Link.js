@@ -3,10 +3,10 @@ function postedBy(parent, args, context) {
 }
 
 function votes(parent, args, context) {
-  return context.prisma.link.findMany({where: { id: parent.id }}).votes()
+  return context.prisma.link.findOne({ where: { id: parent.id } }).votes()
 }
 
 module.exports = {
   postedBy,
-  votes
+  votes,
 }
